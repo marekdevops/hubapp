@@ -7,7 +7,7 @@ import ProtectedRoute from './ProtectedRoute';
 // ...tablice fruits i vegetables oraz styles jak w poprzednich przykładach
 
 function MainApp({ onLogout }) {
-  // Twój panel boczny i menu, np. jak wcześniej
+  // Twój panel sssboczny i menu, np. jak wcześniej
   // Dodaj przycisk "Wyloguj" w panelu bocznym:
   // <button onClick={onLogout}>Wyloguj</button>
   // ...reszta kodu aplikacji
