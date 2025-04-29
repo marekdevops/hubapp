@@ -1,0 +1,27 @@
+.appContainer {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #232526 0%, #414345 100%);
+    min-height: 100vh;
+    color: #f5f6fa;
+    display: flex;
+  }
+  .content {
+    flex-grow: 1;
+    padding: 40px;
+  }
+  .listCard {
+    background: #2f3640;
+    border-radius: 10px;
+    padding: 24px;
+    box-shadow: 0 2px 12px #00000033;
+    max-width: 400px;
+  }
+  .listItem {
+    padding: 7px 0;
+    border-bottom: 1px solid #353b48;
+    font-size: 1.1rem;
+  }
+  .lastItem {
+    border-bottom: none;
+  }
+  

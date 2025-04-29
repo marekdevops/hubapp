@@ -1,0 +1,41 @@
+.sidebar {
+    width: 220px;
+    background: #2f3640;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .menuItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #dcdde1;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: background 0.3s, color 0.3s;
+  }
+  .menuItemActive {
+    background: linear-gradient(90deg,#00c6ff,#0072ff);
+    color: #fff;
+  }
+  .logoutBtn {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(90deg,#ff5858,#f09819);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.05rem;
+    cursor: pointer;
+    box-shadow: 0 2px 12px #ff585833;
+    transition: background 0.2s;
+  }
+  
