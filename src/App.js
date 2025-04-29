@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import LoginPage from './LoginPage';
-import styles from './App.css';
+import styles from './App.module.css';
 
 const fruits = [ 'Jabłko', 'Banan', 'Pomarańcza', 'Gruszka', 'Winogrono', 'Truskawka', 'Ananas', 'Kiwi', 'Mango', 'Cytryna' ];
 const vegetables = [ 'Marchew', 'Brokuł', 'Papryka', 'Ogórek', 'Pomidor', 'Cebula', 'Czosnek', 'Sałata', 'Kalafior', 'Szpinak' ];

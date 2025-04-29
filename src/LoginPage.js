@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styles from './LoginPage.css';
+import styles from './LoginPage.module.css';
 
 const DUMMY_USER = { username: 'admin', password: 'haslo123' };
 
