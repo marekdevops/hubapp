@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { FaAppleAlt, FaCarrot, FaSignOutAlt } from 'react-icons/fa';
 
 // --- Dane ---
@@ -85,6 +85,7 @@ function LoginPage({ onLogin }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const DUMMY_USER = { username: 'admin', password: 'haslo123' };
 
@@ -95,6 +96,7 @@ function LoginPage({ onLogin }) {
       password === DUMMY_USER.password
     ) {
       onLogin();
+      navigate('/');
     } else {
       setError('Nieprawidłowy login lub hasło');
     }
