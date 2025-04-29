@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
+import { FaAppleAlt, FaCarrot } from 'react-icons/fa';
 
 const fruits = [
   'Jabłko', 'Banan', 'Pomarańcza', 'Gruszka', 'Winogrono',
   'Truskawka', 'Ananas', 'Kiwi', 'Mango', 'Cytryna'
+];
+
+const vegetables = [
+  'Marchew', 'Brokuł', 'Papryka', 'Ogórek', 'Pomidor',
+  'Cebula', 'Czosnek', 'Sałata', 'Kalafior', 'Szpinak'
 ];
 
 const styles = {
@@ -11,31 +17,39 @@ const styles = {
     background: 'linear-gradient(135deg, #232526 0%, #414345 100%)',
     minHeight: '100vh',
     color: '#f5f6fa',
-    padding: '40px'
+    display: 'flex'
   },
-  nav: {
-    marginBottom: '30px',
+  sidebar: {
+    width: '220px',
+    background: '#2f3640',
+    padding: '20px',
     display: 'flex',
-    gap: '15px'
+    flexDirection: 'column',
+    gap: '20px'
   },
-  button: isActive => ({
-    padding: '10px 22px',
+  menuItem: isActive => ({
+    display: 'flex',
+    alignItems: 'center',
+    gap: '12px',
+    padding: '12px 16px',
     borderRadius: '8px',
-    border: 'none',
-    background: isActive ? 'linear-gradient(90deg,#00c6ff,#0072ff)' : '#2f3640',
+    cursor: 'pointer',
+    background: isActive ? 'linear-gradient(90deg,#00c6ff,#0072ff)' : 'transparent',
     color: isActive ? '#fff' : '#dcdde1',
     fontWeight: 600,
-    fontSize: '1rem',
-    cursor: 'pointer',
-    boxShadow: isActive ? '0 2px 12px #00c6ff33' : 'none',
-    transition: 'all 0.2s'
+    fontSize: '1.1rem',
+    transition: 'background 0.3s'
   }),
+  content: {
+    flexGrow: 1,
+    padding: '40px'
+  },
   list: {
     background: '#2f3640',
     borderRadius: '10px',
     padding: '24px',
     boxShadow: '0 2px 12px #00000033',
-    maxWidth: '340px'
+    maxWidth: '400px'
   },
   listItem: {
     padding: '7px 0',
@@ -48,51 +62,76 @@ const styles = {
 };
 
 function App() {
-  const [selectedMenu, setSelectedMenu] = useState('home');
+  const [selectedMenu, setSelectedMenu] = useState('fruits');
 
   return (
     <div style={styles.app}>
-      <nav style={styles.nav}>
-        <button
-          onClick={() => setSelectedMenu('home')}
-          style={styles.button(selectedMenu === 'home')}
-        >
-          Strona główna
-        </button>
-        <button
+      <aside style={styles.sidebar}>
+        <div
+          style={styles.menuItem(selectedMenu === 'fruits')}
           onClick={() => setSelectedMenu('fruits')}
-          style={styles.button(selectedMenu === 'fruits')}
+          role="button"
+          tabIndex={0}
+          onKeyPress={() => setSelectedMenu('fruits')}
         >
+          <FaAppleAlt size={24} />
           Lista owoców
-        </button>
-      </nav>
-
-      {selectedMenu === 'home' && (
-        <h1 style={{ fontWeight: 700, letterSpacing: '1px' }}>
-          Witaj na stronie głównej!
-        </h1>
-      )}
-
-      {selectedMenu === 'fruits' && (
-        <div style={styles.list}>
-          <h2 style={{ marginTop: 0, marginBottom: '20px', color: '#00c6ff' }}>
-            Lista 10 owoców:
-          </h2>
-          <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-            {fruits.map((fruit, index) => (
-              <li
-                key={index}
-                style={{
-                  ...styles.listItem,
-                  ...(index === fruits.length - 1 ? styles.lastItem : {})
-                }}
-              >
-                {fruit}
-              </li>
-            ))}
-          </ul>
         </div>
-      )}
+        <div
+          style={styles.menuItem(selectedMenu === 'vegetables')}
+          onClick={() => setSelectedMenu('vegetables')}
+          role="button"
+          tabIndex={0}
+          onKeyPress={() => setSelectedMenu('vegetables')}
+        >
+          <FaCarrot size={24} />
+          Lista warzyw
+        </div>
+      </aside>
+
+      <main style={styles.content}>
+        {selectedMenu === 'fruits' && (
+          <div style={styles.list}>
+            <h2 style={{ marginTop: 0, marginBottom: '20px', color: '#00c6ff' }}>
+              Lista 10 owoców:
+            </h2>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+              {fruits.map((fruit, index) => (
+                <li
+                  key={index}
+                  style={{
+                    ...styles.listItem,
+                    ...(index === fruits.length - 1 ? styles.lastItem : {})
+                  }}
+                >
+                  {fruit}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {selectedMenu === 'vegetables' && (
+          <div style={styles.list}>
+            <h2 style={{ marginTop: 0, marginBottom: '20px', color: '#00c6ff' }}>
+              Lista 10 warzyw:
+            </h2>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+              {vegetables.map((veg, index) => (
+                <li
+                  key={index}
+                  style={{
+                    ...styles.listItem,
+                    ...(index === vegetables.length - 1 ? styles.lastItem : {})
+                  }}
+                >
+                  {veg}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </main>
     </div>
   );
 }
