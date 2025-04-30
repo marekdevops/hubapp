@@ -39,24 +39,4 @@
     font-weight: 600;
   }
   
-  .generatedNames {
-    width: 100%;
-    min-height: 120px;
-    resize: vertical;
-    border-radius: 8px;
-    border: 1px solid #353b48;
-    background: #232526;
-    color: #00c6ff;
-    font-size: 1.1rem;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    padding: 14px;
-    margin-top: 16px;
-    box-shadow: 0 2px 12px #00000022;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-  
-  .generatedNames:focus {
-    border-color: #00c6ff;
-  }
   
