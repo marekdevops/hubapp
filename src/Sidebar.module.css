@@ -38,4 +38,29 @@
     box-shadow: 0 2px 12px #ff585833;
     transition: background 0.2s;
   }
-  
+  /* Dodaj te style do Sidebar.module.css */
+.submenu {
+  margin-left: 20px;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.submenuItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #dcdde1;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: background 0.3s, color 0.3s;
+}
+
+.submenuItemActive {
+  background: rgba(0, 198, 255, 0.2);
+  color: #00c6ff;
+}

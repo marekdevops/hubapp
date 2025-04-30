@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import LoginPage from './LoginPage';
+import NameGenerator from './NameGenerator';
 import styles from './App.module.css';
 
 const fruits = [ 'Jabłko', 'Banan', 'Pomarańcza', 'Gruszka', 'Winogrono', 'Truskawka', 'Ananas', 'Kiwi', 'Mango', 'Cytryna' ];
@@ -50,6 +51,9 @@ function MainApp({ onLogout }) {
               ))}
             </ul>
           </div>
+        )}
+        {selectedMenu === 'nameGenerator' && (
+          <NameGenerator />
         )}
       </main>
     </div>
