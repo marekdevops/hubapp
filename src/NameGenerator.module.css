@@ -1,79 +1,64 @@
 .container {
-    background: #2f3640;
-    border-radius: 10px;
-    padding: 24px;
-    box-shadow: 0 2px 12px #00000033;
-    max-width: 500px;
-  }
-  
-  .title {
-    margin-top: 0;
-    margin-bottom: 16px;
-    color: #00c6ff;
-  }
-  
-  .description {
-    margin-bottom: 24px;
-    color: #dcdde1;
-    line-height: 1.5;
-  }
-  
-  .controls {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 24px;
-    align-items: flex-end;
-  }
-  
-  .inputGroup {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-  .input {
-    padding: 8px 12px;
-    border-radius: 6px;
-    border: 1px solid #353b48;
-    background: #232526;
-    color: #fff;
-    width: 80px;
-  }
-  
-  .button {
-    padding: 10px 20px;
-    border-radius: 6px;
-    border: none;
-    background: linear-gradient(90deg,#00c6ff,#0072ff);
-    color: #fff;
-    font-weight: 600;
-    cursor: pointer;
-    transition: opacity 0.2s;
-  }
-  
-  .button:hover {
-    opacity: 0.9;
-  }
-  
-  .results {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    padding: 16px;
-  }
-  
-  .namesList {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .nameItem {
-    padding: 8px 0;
-    border-bottom: 1px solid #353b48;
-    font-size: 1.1rem;
-  }
-  
-  .nameItem:last-child {
-    border-bottom: none;
-  }
-  
+  background: #2f3640;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 2px 12px #00000033;
+  max-width: 500px;
+}
+
+.title {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: #00c6ff;
+}
+
+.description {
+  margin-bottom: 24px;
+  color: #dcdde1;
+  line-height: 1.5;
+}
+
+.form {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.input {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid #353b48;
+  background: #232526;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.button {
+  padding: 10px 22px;
+  border-radius: 6px;
+  border: none;
+  background: linear-gradient(90deg,#00c6ff,#0072ff);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+.resultBox {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 10px;
+}
+
+.generatedName {
+  font-size: 1.3rem;
+  color: #00c6ff;
+  font-weight: bold;
+  margin-top: 8px;
+}
