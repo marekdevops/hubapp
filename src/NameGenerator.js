@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import styles from './NameGenerator.module.css';
 
-export default function NameGenerator() {
+function NameGenerator() {
+  const [generatedNames, setGeneratedNames] = useState('');
   const [inputName, setInputName] = useState('');
-  const [generatedName, setGeneratedName] = useState('');
   const [error, setError] = useState('');
 
   const handleGenerate = async (e) => {
     e.preventDefault();
-    setGeneratedName('');
+    setGeneratedNames('');
     setError('');
     try {
       const response = await fetch('http://localhost:5000/api/generate', {
@@ -20,34 +20,41 @@ export default function NameGenerator() {
       if (data.error) {
         setError(data.error);
       } else {
-        setGeneratedName(data.output);
+        setGeneratedNames(data.output); // zakładamy, że output to string z '\n'
       }
     } catch (err) {
-      setError('Błąd połączenia z serwerem.'+ err);
+      setError('Błąd połączenia z serwerem.');
     }
   };
 
   return (
     <div className={styles.container}>
-    <h2 className={styles.title}>Generator nazw</h2>
-    <form onSubmit={handleGenerate} className={styles.form}>
-      <input
-        type="text"
-        placeholder="Wpisz nazwę"
-        value={inputName}
-        onChange={e => setInputName(e.target.value)}
-        className={styles.input}
-      />
-      <button type="submit" className={styles.button}>
-        Generuj
-      </button>
-    </form>
-    <textarea
-      rows={5}
-      readOnly
-      value={generatedNames}
-      className={styles.generatedNames}
-    />
-  </div>
+      <h2 className={styles.title}>Generator nazw</h2>
+      <form onSubmit={handleGenerate} className={styles.form}>
+        <input
+          type="text"
+          placeholder="Wpisz nazwę"
+          value={inputName}
+          onChange={e => setInputName(e.target.value)}
+          className={styles.input}
+        />
+        <button type="submit" className={styles.button}>
+          Generuj
+        </button>
+      </form>
+      {generatedNames && (
+        <textarea
+          rows={5}
+          readOnly
+          value={generatedNames}
+          className={styles.generatedNames}
+        />
+      )}
+      {error && (
+        <div style={{ color: 'red', marginTop: '10px' }}>{error}</div>
+      )}
+    </div>
   );
 }
+
+export default NameGenerator;
