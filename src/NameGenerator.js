@@ -1,31 +1,35 @@
 import React, { useState } from 'react';
 import styles from './NameGenerator.module.css';
 
-function generateModifiedName(input) {
-  if (!input.trim()) return '';
-  // Przykładowa modyfikacja: dodaj losowy przedrostek i przyrostek
-  const prefixes = ['Super', 'Mega', 'Ultra', 'Quantum', 'Cyber', 'Hyper'];
-  const suffixes = ['Pro', 'Plus', 'Max', 'Zone', 'Sync', 'Prime'];
-  const prefix = prefixes[Math.floor(Math.random() * prefixes.length)];
-  const suffix = suffixes[Math.floor(Math.random() * suffixes.length)];
-  return `${prefix}${input.charAt(0).toUpperCase() + input.slice(1)}${suffix}`;
-}
-
 export default function NameGenerator() {
   const [inputName, setInputName] = useState('');
   const [generatedName, setGeneratedName] = useState('');
+  const [error, setError] = useState('');
 
-  const handleGenerate = (e) => {
+  const handleGenerate = async (e) => {
     e.preventDefault();
-    setGeneratedName(generateModifiedName(inputName));
+    setGeneratedName('');
+    setError('');
+    try {
+      const response = await fetch('http://localhost:5000/api/generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: inputName })
+      });
+      const data = await response.json();
+      if (data.error) {
+        setError(data.error);
+      } else {
+        setGeneratedName(data.output);
+      }
+    } catch (err) {
+      setError('Błąd połączenia z serwerem.');
+    }
   };
 
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Generator nazw</h2>
-      <p className={styles.description}>
-        Wpisz swoją nazwę, a generator doda do niej kreatywny przedrostek i przyrostek!
-      </p>
       <form onSubmit={handleGenerate} className={styles.form}>
         <input
           type="text"
@@ -43,6 +47,9 @@ export default function NameGenerator() {
           <h3>Wygenerowana nazwa:</h3>
           <div className={styles.generatedName}>{generatedName}</div>
         </div>
+      )}
+      {error && (
+        <div style={{ color: 'red', marginTop: '10px' }}>{error}</div>
       )}
     </div>
   );
