@@ -23,7 +23,7 @@ export default function NameGenerator() {
         setGeneratedName(data.output);
       }
     } catch (err) {
-      setError('Błąd połączenia z serwerem.');
+      setError('Błąd połączenia z serwerem.'+ err);
     }
   };
 
