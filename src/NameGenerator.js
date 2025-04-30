@@ -29,28 +29,25 @@ export default function NameGenerator() {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Generator nazw</h2>
-      <form onSubmit={handleGenerate} className={styles.form}>
-        <input
-          type="text"
-          placeholder="Wpisz nazwę"
-          value={inputName}
-          onChange={e => setInputName(e.target.value)}
-          className={styles.input}
-        />
-        <button type="submit" className={styles.button}>
-          Generuj
-        </button>
-      </form>
-      {generatedName && (
-        <div className={styles.resultBox}>
-          <h3>Wygenerowana nazwa:</h3>
-          <div className={styles.generatedName}>{generatedName}</div>
-        </div>
-      )}
-      {error && (
-        <div style={{ color: 'red', marginTop: '10px' }}>{error}</div>
-      )}
-    </div>
+    <h2 className={styles.title}>Generator nazw</h2>
+    <form onSubmit={handleGenerate} className={styles.form}>
+      <input
+        type="text"
+        placeholder="Wpisz nazwę"
+        value={inputName}
+        onChange={e => setInputName(e.target.value)}
+        className={styles.input}
+      />
+      <button type="submit" className={styles.button}>
+        Generuj
+      </button>
+    </form>
+    <textarea
+      rows={5}
+      readOnly
+      value={generatedNames}
+      className={styles.generatedNames}
+    />
+  </div>
   );
 }
