@@ -63,8 +63,9 @@
   margin-top: 8px;
 }
 .generatedNames {
-  width: 100%;
-  min-height: 100px;
+  width: 100%; /* zajmuje całą szerokość kontenera */
+  max-width: 100vw; /* maksymalna szerokość to szerokość widoku ekranu */
+  min-height: 200px; /* zachowujemy większą wysokość */
   resize: vertical;
   border-radius: 8px;
   border: 1px solid #353b48;
@@ -77,6 +78,8 @@
   box-shadow: 0 2px 12px #00000022;
   outline: none;
   transition: border-color 0.2s;
+  line-height: 1.5;
+  box-sizing: border-box; /* uwzględnia padding i border w szerokości */
 }
 
 .generatedNames:focus {
