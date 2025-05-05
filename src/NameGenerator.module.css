@@ -51,9 +51,9 @@
 
 .resultBox {
   background: rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-  padding: 16px;
-  margin-top: 10px;
+  border-radius: 13px;
+  padding: 20px;
+  margin-top: 16px;
 }
 
 .generatedName {
