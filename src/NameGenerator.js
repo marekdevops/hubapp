@@ -44,7 +44,7 @@ function NameGenerator() {
       </form>
       {generatedNames && (
         <textarea
-          rows={5}
+          rows={10}
           readOnly
           value={generatedNames}
           className={styles.generatedNames}
