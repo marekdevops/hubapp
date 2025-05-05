@@ -64,7 +64,7 @@
 }
 .generatedNames {
   width: 100%;
-  min-height: 120px;
+  min-height: 100px;
   resize: vertical;
   border-radius: 8px;
   border: 1px solid #353b48;
